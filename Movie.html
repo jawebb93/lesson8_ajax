@@ -1,8 +1,8 @@
 <html>
 <!- - 
 Program Name:   Seminole Movie Connection
-Author: 
-Date: 
+Author: Jordan Webb
+Date: March 20, 2016
 Filename:   Movie.html
 - ->
 <head>
@@ -53,11 +53,46 @@ Filename:   Movie.html
             <p class="list-group-item-text lead text-primary" id="Released">  </p>
         </a> 
 
+          <a href="#" class="list-group-item">
+            <h3 class="list-group-item-heading">Language:</h3>
+            <p class="list-group-item-text lead text-primary" id="Language">  </p>
+        </a> 
+        
+         <a href="#" class="list-group-item">
+            <h3 class="list-group-item-heading">Director:</h3>
+            <p class="list-group-item-text lead text-primary" id="Director">  </p>
+        </a> 
+         <a href="#" class="list-group-item">
+            <h3 class="list-group-item-heading">Poster:</h3>
+            <p class="list-group-item-text lead text-primary" id="Poster">  </p>
+        </a> 
+         <a href="#" class="list-group-item">
+            <h3 class="list-group-item-heading">Awards:</h3>
+            <p class="list-group-item-text lead text-primary" id="Awards">  </p>
+        </a> 
+        
+        
+     <a href="#" class="list-group-item">
+            <h3 class="list-group-item-heading">imdbRating:</h3>
+            <p class="list-group-item-text lead text-primary" id="imdbRating">  </p>
+        </a> 
+         <a href="#" class="list-group-item">
+            <h3 class="list-group-item-heading">Type:</h3>
+            <p class="list-group-item-text lead text-primary" id="Type">  </p>
+        </a> 
+         <a href="#" class="list-group-item">
+            <h3 class="list-group-item-heading">Genre:</h3>
+            <p class="list-group-item-text lead text-primary" id="Genre">  </p>
+        </a> 
+         <a href="#" class="list-group-item">
+            <h3 class="list-group-item-heading">imdbVotes:</h3>
+            <p class="list-group-item-text lead text-primary" id="imdbVotes">  </p>
+        </a> 
     </div>
 </div> 
     <script>
-        $(document).ready(function(){
-           $(':button').click(function(){
+       /*global $*/   $(document).ready(function(){
+         /*global $*/    $(':button').click(function(){
                  var message = 't=' + $('#movieName').val();   
                  $.ajax({
                       type: 'GET',
@@ -65,11 +100,19 @@ Filename:   Movie.html
                       data: message             
                 })
                 .done(function(json){
-                     $('#Title').html(json.Title);
+                  /*global $*/   $('#Title').html(json.Title);
                      $('#Rated').html(json.Rated);
                      $('#Actors').html(json.Actors);
                      $('#Plot').html(json.Plot);
                      $('#Released').html(json.Released);
+                      $('#Language').html(json.Language);
+                       $('#Director').html(json.Director);
+                        $('#Poster').html(json.Poster);
+                         $('#Awards').html(json.Awards);
+                          $('#imdbRating').html(json.imdbRating);
+                           $('#Type').html(json.Type);
+                            $('#Genre').html(json.Genre);
+                             $('#imdbVotes').html(json.imdbVotes);
                 })
                 .fail(function() {
                       alert("Posting failed.");              
